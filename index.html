@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+<style>
+.highcharts-figure,
+.highcharts-data-table table {
+  min-width: 360px;
+  max-width: 800px;
+  margin: 1em auto;
+}
+
+.highcharts-data-table table {
+  font-family: Verdana, sans-serif;
+  border-collapse: collapse;
+  border: 1px solid #ebebeb;
+  margin: 10px auto;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+.highcharts-data-table caption {
+  padding: 1em 0;
+  font-size: 1.2em;
+  color: #555;
+}
+
+.highcharts-data-table th {
+  font-weight: 600;
+  padding: 0.5em;
+}
+
+.highcharts-data-table td,
+.highcharts-data-table th,
+.highcharts-data-table caption {
+  padding: 0.5em;
+}
+
+.highcharts-data-table thead tr,
+.highcharts-data-table tr:nth-child(even) {
+  background: #f8f8f8;
+}
+
+.highcharts-data-table tr:hover {
+  background: #f1f7ff;
+}
+</style>
+
+</head>
+<body>
+	
+	
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+<figure class="highcharts-figure">
+  <div id="container"></div>
+  <p class="highcharts-description">
+
+由上圖可知，日本、台灣與越南三者在2016年至2019年的入境人數逐年增加，日本入境人數為最多，越南次之，
+<br>
+<br>
+台灣排三，而越南相比其他兩個國家來說，成長幅度為最大。2019年因為疫情升溫導致三國之每年的入境人口數
+<br>
+<br>
+下降，在2021年人數皆不超過30萬人入境。
+
+  </p>
+</figure>
+
+<script>
+
+Highcharts.chart('container', {
+
+  title: {
+    text: '2016-2021 日本、台灣、越南 三者之間 入境旅客人數折線圖 '
+  },
+
+  subtitle: {
+    text: 'Source: UNWTO'
+  },
+
+  yAxis: {
+    title: {
+      text: '入境旅客人數(百萬)'
+    }
+  },
+
+  xAxis: {
+    accessibility: {
+      rangeDescription: 'Range: 2016 to 2021'
+    }
+  },
+
+  legend: {
+    layout: 'vertical',
+    align: 'right',
+    verticalAlign: 'middle'
+  },
+
+  plotOptions: {
+    series: {
+      label: {
+        connectorAllowed: false
+      },
+      pointStart: 2016
+    }
+  },
+
+  series: [{
+    name: '日本',
+    data: [24.0, 28.7, 31.2, 31.9 , 4.1, 0.2]
+  }, {
+    name: '台灣',
+    data: [10.7, 10.7, 12.1, 11.9, 1.4, 0.1
+      ]
+  }, {
+    name: '越南',
+    data: [10, 12.9, 15.5, 18.0, 3.8, 0.2]
+  }],
+
+  responsive: {
+    rules: [{
+      condition: {
+        maxWidth: 500
+      },
+      chartOptions: {
+        legend: {
+          layout: 'horizontal',
+          align: 'center',
+          verticalAlign: 'bottom'
+        }
+      }
+    }]
+  }
+
+});
+
+</script>
+
+</body>
+</html>
